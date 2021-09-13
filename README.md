@@ -11,9 +11,9 @@
 | firstname          | string  | null: false               |
 | lastname_kana      | string  | null: false               |
 | firstname_kana     | string  | null: false               |
-| birth_year         | integer | null: false               |
-| birth_month        | integer | null: false               |
-| birth_day          | integer | null: false               |
+| birth_year_id      | integer | null: false               |
+| birth_month_id     | integer | null: false               |
+| birth_day_id       | integer | null: false               |
 
 ### Association
 
@@ -27,12 +27,12 @@
 | image           |            |                                |
 | itemname        | string     | null: false                    |
 | itemdescription | text       | null: false                    |
-| category        | integer    | null: false                    |
-| itemstatus      | integer    | null: false                    |
-| burden          | integer    | null: false                    |
+| category_id     | integer    | null: false                    |
+| itemstatus_id   | integer    | null: false                    |
+| burden_id       | integer    | null: false                    |
 | area_info_id    | integer    | null: false                    |
-| days_to_send    | integer    | null: false                    |
-| area_info       | integer    | null: false                    |
+| days_to_send_id | integer    | null: false                    |
+| area_info_id    | integer    | null: false                    |
 | price           | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
