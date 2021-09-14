@@ -11,9 +11,7 @@
 | firstname          | string  | null: false               |
 | lastname_kana      | string  | null: false               |
 | firstname_kana     | string  | null: false               |
-| birth_year_id      | integer | null: false               |
-| birth_month_id     | integer | null: false               |
-| birth_day_id       | integer | null: false               |
+| birthday           | date    | null: false               |
 
 ### Association
 
@@ -32,14 +30,13 @@
 | burden_id       | integer    | null: false                    |
 | area_info_id    | integer    | null: false                    |
 | days_to_send_id | integer    | null: false                    |
-| area_info_id    | integer    | null: false                    |
 | price           | integer    | null: false                    |
 | user            | references | null: false, foreign_key: true |
 
 ### Association
 
-- has_one :purchases
-- belongs_to :users
+- has_one :purchase
+- belongs_to :user
 
 ## purchases テーブル
 
@@ -50,9 +47,9 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :items
-- has_one :shipping_addresses
+- belongs_to :user
+- belongs_to :item
+- has_one :shipping_address
 
 ## shipping_addresses テーブル
 
@@ -60,7 +57,7 @@
 | -------------- | ---------- | ------------------------------ |
 | postal_code    | string     | null: false                    |
 | area_info_id   | integer    | null: false                    |
-| municipalities | string     | null: false                    |
+| municipality   | string     | null: false                    |
 | house_number   | string     | null: false                    |
 | buildingname   | string     |                                |
 | phone_number   | string     | null: false                    |
@@ -68,4 +65,4 @@
 
 ### Association
 
-- belongs_to :shipping_addresses
+- belongs_to :purchase
