@@ -1,4 +1,3 @@
-days_to_send
 class Days_to_send < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },

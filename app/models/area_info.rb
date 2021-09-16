@@ -1,4 +1,3 @@
-area_info
 class Area_info < ActiveHash::Base
   self.data = [
     { id: 1, name: '---' },
