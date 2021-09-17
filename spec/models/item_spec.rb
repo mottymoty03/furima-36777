@@ -15,7 +15,7 @@ RSpec.describe Item, type: :model do
       it "画像なしでは出品できない" do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include()
+        expect(@item.errors.full_messages).to include("Image can't be blank")
       end
       it "itemnameが空では出品できない" do
         @item.itemname = ''
@@ -60,12 +60,17 @@ RSpec.describe Item, type: :model do
       it "priceが299円以下では出品できない" do
         @item.price = '299'
         @item.valid?
-        expect(@item.errors.full_messages).to include()
+        expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
       it "priceが10000000円以上では出品できない" do
         @item.price = '10000000'
         @item.valid?
-        expect(@item.errors.full_messages).to include()
+        expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+      end
+      it "priceが半角数字でなければ出品できない" do
+        @item.price = '１００００'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price is not a number")
       end
     end
   end
