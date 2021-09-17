@@ -8,11 +8,11 @@ FactoryBot.define do
 
     itemname          {Faker::Name.initials(number: 2)}
     itemdescription   {Faker::Lorem.sentence}
-    category_id       {'2'}
-    itemstatus_id     {'2'}
-    burden_id         {'2'}
-    area_info_id      {'2'}
-    days_to_send_id   {'2'}
-    price             {'3333'}
+    category_id       {2}
+    itemstatus_id     {2}
+    burden_id         {2}
+    area_info_id      {2}
+    days_to_send_id   {2}
+    price             {3333}
   end
 end
