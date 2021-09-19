@@ -1,4 +1,6 @@
 class ShippingAddress < ApplicationRecord
+  belongs_to :purchase
+
   validates :postal_code, presence: true
   validates :municipality, presence: true
   validates :house_number, presence: true
