@@ -6,8 +6,10 @@ class PurchasesController < ApplicationController
   end
 
   def create
+    @item = Item.find(params[:item_id])
     @purchase_shipping_address = PurchaseShippingAddress.new(purchase_params)
-    if @purchase_shipping_address.save
+    if @purchase_shipping_address.valid?
+      @purchase_shipping_address.save
       redirect_to root_path
     else
       render :index
