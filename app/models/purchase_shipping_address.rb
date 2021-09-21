@@ -1,6 +1,7 @@
 class PurchaseShippingAddress
   include ActiveModel::Model
   attr_accessor :user_id, :item_id, :postal_code, :area_info_id, :municipality, :house_number, :buildingname, :phone_number, :purchase_id
+  attr_accessor :token
 
   with_options presence: true do
     validates :user_id
@@ -12,6 +13,7 @@ class PurchaseShippingAddress
     validates :purchase_id
   end
   validates :area_info_id, numericality: {other_than: 0, message: "can't be blank"}
+  validates :token, presence: true
 
   def save
     @purchase = Purchase.create(user_id: user_id, item_id: item_id)
