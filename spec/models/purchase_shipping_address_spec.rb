@@ -41,6 +41,11 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include("Phone number can't be blank")
       end
+      it 'tokenが空では購入できない' do
+        @purchase_shipping_address.token = ''
+        @purchase_shipping_address.valid?
+        expect(@purchase_shipping_address.errors.full_messages).to include("Token can't be blank")
+      end
       it 'userが紐付いてなければ購入できない' do
         @purchase_shipping_address.user_id = nil
         @purchase_shipping_address.valid?
@@ -68,6 +73,16 @@ RSpec.describe PurchaseShippingAddress, type: :model do
       end
       it 'phone_numberが半角数字でなければ購入できない' do
         @purchase_shipping_address.phone_number = '０９０１１１１２２２２'
+        @purchase_shipping_address.valid?
+        expect(@purchase_shipping_address.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'phone_numberが9桁以下では購入できない' do
+        @purchase_shipping_address.phone_number = '090456789'
+        @purchase_shipping_address.valid?
+        expect(@purchase_shipping_address.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'phone_numberが12桁以上では購入できない' do
+        @purchase_shipping_address.phone_number = '090456789012'
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include("Phone number is invalid")
       end
