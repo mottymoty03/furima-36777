@@ -10,7 +10,6 @@ class PurchaseShippingAddress
     validates :municipality
     validates :house_number
     validates :phone_number
-    validates :purchase_id
     validates :token
   end
   validates :area_info_id, numericality: {other_than: 0, message: "can't be blank"}

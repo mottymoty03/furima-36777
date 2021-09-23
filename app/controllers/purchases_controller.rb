@@ -2,7 +2,7 @@ class PurchasesController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
-    @purchase = Purchase.new
+    @purchase_shipping_address = PurchaseShippingAddress.new
   end
 
   def create
@@ -20,13 +20,14 @@ class PurchasesController < ApplicationController
   private
 
   def purchase_params
-    params.permit(:postal_code, :area_info_id, :municipality, :house_number, :buildingname, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:purchase_shipping_address).permit(:postal_code, :area_info_id, :municipality, :house_number, :buildingname, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def pay_item
+    binding.pry
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
-      amount: purchase_params[@item.price],
+      amount: @item.price,
       card: purchase_params[:token],
       currency: 'jpy'
     )
