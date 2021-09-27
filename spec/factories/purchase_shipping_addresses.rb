@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :purchase_shipping_address do
     postal_code { '000-0000' }
-    area_info_id { 1 }
+    area_info_id { 2 }
     municipality { '丸々市' }
     house_number { '１丁目' }
     buildingname { 'ハイツ' }

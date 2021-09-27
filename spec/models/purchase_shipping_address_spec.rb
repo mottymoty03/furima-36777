@@ -25,7 +25,7 @@ RSpec.describe PurchaseShippingAddress, type: :model do
         expect(@purchase_shipping_address.errors.full_messages).to include("Postal code can't be blank")
       end
       it 'area_info_idが空では購入できない' do
-        @purchase_shipping_address.area_info_id = 0
+        @purchase_shipping_address.area_info_id = 1
         @purchase_shipping_address.valid?
         expect(@purchase_shipping_address.errors.full_messages).to include("Area info can't be blank")
       end
