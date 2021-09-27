@@ -12,7 +12,7 @@ class PurchaseShippingAddress
     validates :phone_number, format: {with: /\A[0-9]{10,11}\z/}
     validates :token
   end
-  validates :area_info_id, numericality: {other_than: 0, message: "can't be blank"}
+  validates :area_info_id, numericality: {other_than: 1, message: "can't be blank"}
 
   def save
     @purchase = Purchase.create(user_id: user_id, item_id: item_id)
