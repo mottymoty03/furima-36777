@@ -19,3 +19,12 @@ ja:
         area_info_id: 発送元の地域
         days_to_send_id: 発想までの日数
         user: 出品者
+  activemodel:
+    attributes:
+      purchase_shipping_address:
+        postal_code: 郵便番号
+        municipality: 市区町村
+        house_number: 番地
+        phone_number: 電話番号
+        area_info_id: 都道府県
+        token: トークン
