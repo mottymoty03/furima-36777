@@ -28,3 +28,5 @@ ja:
         phone_number: 電話番号
         area_info_id: 都道府県
         token: トークン
+        user_id: 出品者
+        item_id: 商品
