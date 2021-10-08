@@ -5,8 +5,8 @@ ja:
         nickname: ニックネーム
         lastname: 名字
         firstname: 名前
-        lastname kana: 名字カナ
-        firstname kana: 名前カナ
+        lastname_kana: 名字カナ
+        firstname_kana: 名前カナ
         birthday: 生年月日
       item:
         images: 画像
@@ -18,3 +18,4 @@ ja:
         burden_id: 送料の負担
         area_info_id: 発送元の地域
         days_to_send_id: 発想までの日数
+        user: 出品者
