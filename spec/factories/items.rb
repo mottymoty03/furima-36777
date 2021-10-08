@@ -3,7 +3,7 @@ FactoryBot.define do
     association :user
 
     after(:build) do |item|
-      item.image.attach(io: File.open('/Users/r3e5id03/Pictures/01 2/bana1.jpg'), filename: 'bana1.jpg')
+      item.images.attach(io: File.open('/Users/r3e5id03/Pictures/01 2/bana1.jpg'), filename: 'bana1.jpg')
     end
 
     itemname          {Faker::Name.initials(number: 2)}
