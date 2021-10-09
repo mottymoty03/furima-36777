@@ -24,4 +24,10 @@
       <% end %>
     </ul>
   </div>
+  <% if user_signed_in? %>
+  <% else %>
+    <%= link_to 'Googleでログイン', user_google_oauth2_omniauth_authorize_path, class: "sign-google", method: :post%>
+    <%= link_to "Googleで登録", user_google_oauth2_omniauth_authorize_path, class: "sign-google", method: :post%>
+  <% end %>
+
 </header>
